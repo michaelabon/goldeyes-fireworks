@@ -25,3 +25,8 @@ for (let fireworksDate of fireworksDates) {
         break;
     }
 }
+
+// If the query params include ?closed=1 then call announceFireworks()
+if ((new URLSearchParams(window.location.search)).get('closed')) {
+    announceFireworks();
+}
