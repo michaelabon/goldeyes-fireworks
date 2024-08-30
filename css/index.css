@@ -125,7 +125,3 @@ a[href*=".pdf"]::after {
     text-align:right;
     color: hsl(0, 0%, 8%);
 }
-
-
-}
-
