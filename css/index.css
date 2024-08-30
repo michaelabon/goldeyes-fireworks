@@ -71,11 +71,16 @@ h1 {
     height: auto;
 }
 
-/* media query for 1200px wide and greater */
 @media (min-width: 1200px) {
  .explanation, .diagrams {
      /* max width should be 1000px the column should be centered on the page */
      max-width: 1000px;
      margin: 0 auto;
  }
+}
+
+/* Warn about PDFs */
+a[href*=".pdf"]::after {
+    content: url("https://www.codeinwp.com/wp-content/uploads/2021/12/pdficon.png");
+    vertical-align: middle;
 }
