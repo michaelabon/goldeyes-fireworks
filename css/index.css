@@ -1,0 +1,81 @@
+html {
+    box-sizing: border-box;
+}
+
+:root {
+    --main-bg-color: hsl(150, 20%, 96%);
+    --dark-bg-color: hsl(196, 38%, 92%);
+    --closed-bg-color: #ca3339;
+    --closed-color: hsl(0, 100%, 97%);
+}
+
+body {
+    background-color: var(--main-bg-color);
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen', 'Ubuntu', 'Fira Sans', 'Droid Sans', 'Helvetica Neue', sans-serif;
+    color: hsl(36, 100%, 5%);
+    font-size: calc(15px + 0.390625vw);
+}
+
+h1, h2 {
+    font-family: "Playfair Display", serif;
+    font-optical-sizing: auto;
+    font-weight: 500;
+    font-style: normal;
+}
+
+h1 {
+    font-size: 2em;
+}
+
+.announce {
+    padding: 0.5em;
+    margin-bottom: 2em;
+    text-align: center;
+}
+
+.yes body {
+    margin-left: 0;
+    margin-right: 0;
+}
+
+.yes .announce {
+    padding-left: 0;
+    padding-right: 0;
+    margin-left: -8px;
+    margin-right: -8px;
+}
+.yes #answer {
+    padding-top: 2em;
+    padding-bottom: 2em;
+    background-color: var(--closed-bg-color);
+    font-size: 1.3em;
+}
+
+.yes #answer em {
+    color: var(--closed-color);
+}
+
+/*.explanation > p, .explanation > h2 {*/
+.explanation {
+    padding: 0.5em 1em;
+}
+
+.diagrams > figure {
+    margin-left: 0;
+    margin-right: 0;
+}
+
+.diagrams img {
+    /* The image should be 100% width, but should not skew its aspect ratio */
+    max-width: 100%;
+    height: auto;
+}
+
+/* media query for 1200px wide and greater */
+@media (min-width: 1200px) {
+ .explanation, .diagrams {
+     /* max width should be 1000px the column should be centered on the page */
+     max-width: 1000px;
+     margin: 0 auto;
+ }
+}
