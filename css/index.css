@@ -97,7 +97,7 @@ blockquote::after {
     margin-left: 1em;
 }
 
-.diagrams img, .diagrams svg {
+.diagrams img, .diagrams source, .diagrams svg {
     /* The image should be 100% width, but should not skew its aspect ratio */
     max-width: calc(100% - 2em);
     height: auto;
@@ -122,14 +122,6 @@ a[href*=".pdf"]::after {
 }
 
 
-svg #exclusion-circle {
-    stroke: var(--goldeyes-red);
-    stroke-width: 10px;
-    /*fill: #ca3339;*/
-    /*fill-opacity: 40%;*/
-}
 
-svg #exclusion-hatch line {
-    stroke: var(--goldeyes-red);
 }
 
