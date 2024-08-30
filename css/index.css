@@ -3,9 +3,10 @@ html {
 }
 
 :root {
+    --goldeyes-red: #ca3339;
     --main-bg-color: hsl(150, 20%, 96%);
     --dark-bg-color: hsl(196, 38%, 92%);
-    --closed-bg-color: #ca3339;
+    --closed-bg-color: var(--goldeyes-red);
     --closed-color: hsl(0, 100%, 97%);
 }
 
@@ -63,11 +64,18 @@ h1 {
 .diagrams > figure {
     margin-left: 0;
     margin-right: 0;
+    margin-top: 2em;
+    margin-bottom: 2em;
 }
 
-.diagrams img {
+.diagrams figure img, .diagrams figure source, .diagrams figure svg {
+    margin-top: 1em;
+    margin-left: 1em;
+}
+
+.diagrams img, .diagrams svg {
     /* The image should be 100% width, but should not skew its aspect ratio */
-    max-width: 100%;
+    max-width: calc(100% - 2em);
     height: auto;
 }
 
@@ -77,6 +85,10 @@ h1 {
      max-width: 1000px;
      margin: 0 auto;
  }
+
+    h2 {
+        margin-left: -1em;
+    }
 }
 
 /* Warn about PDFs */
@@ -84,3 +96,16 @@ a[href*=".pdf"]::after {
     content: url("https://www.codeinwp.com/wp-content/uploads/2021/12/pdficon.png");
     vertical-align: middle;
 }
+
+
+svg #exclusion-circle {
+    stroke: var(--goldeyes-red);
+    stroke-width: 10px;
+    /*fill: #ca3339;*/
+    /*fill-opacity: 40%;*/
+}
+
+svg #exclusion-hatch line {
+    stroke: var(--goldeyes-red);
+}
+
