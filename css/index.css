@@ -28,6 +28,28 @@ h1 {
     font-size: 2em;
 }
 
+blockquote {
+    max-width: 80%;
+    padding-top: 0.5em;
+    padding-bottom: 0.5em;
+    padding-left: 2em;
+    padding-right: 1.2em;
+    margin-left: 1em;
+    display: block;
+    border-left: 2px solid gray;
+    background: hsla(0, 0%, 20%, 0.05);
+    text-indent: -0.85em;
+}
+
+blockquote::before {
+    font-weight: bold;
+    font-size: 140%;
+    content: "“";
+}
+blockquote::after {
+    content: none;
+}
+
 .announce {
     padding: 0.5em;
     margin-bottom: 2em;
