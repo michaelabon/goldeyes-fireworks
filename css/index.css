@@ -72,10 +72,12 @@ blockquote::after {
     padding-bottom: 2em;
     background-color: var(--closed-bg-color);
     font-size: 1.3em;
+    font-weight: 500;
+    color: var(--closed-color);
 }
 
 .yes #answer em {
-    color: var(--closed-color);
+    color: white;
 }
 
 /*.explanation > p, .explanation > h2 {*/
