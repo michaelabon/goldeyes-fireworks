@@ -28,6 +28,46 @@
 
     <link rel="manifest" href="site.webmanifest">
     <meta name="theme-color" content="#fafafa">
+
+    <style>
+        .debug {
+            display: none;
+        }
+
+        #animated-figure-route-west, #animated {
+            height: 90vh;
+            scroll-snap-align: start;
+            scroll-snap-stop: normal;
+            scroll-snap-type: both mandatory;
+        }
+
+        .path {
+            stroke-dasharray: 150;
+            stroke-dashoffset: 150;
+            animation: dash 10s linear normal infinite;
+        }
+
+        @keyframes dash {
+            0% {
+                stroke-dashoffset: 150;
+            }
+            15% {
+                stroke-dashoffset: 130;
+            }
+            25% {
+                stroke-dashoffset: 126;
+            }
+            35% {
+                stroke-dashoffset: 124;
+            }
+            40% {
+                stroke-dashoffset: 120;
+            }
+            100% {
+                stroke-dashoffset: 0;
+            }
+        }
+    </style>
 </head>
 
 <body>
@@ -207,7 +247,6 @@
             -->
         </figure>
 
-
         <figure id="puzzle">
             <figcaption>
                 <strong>
@@ -260,9 +299,9 @@
                 </g>
             </svg>
         </figure>
+        
 
-
-        <figure id="figure-route-west">
+        <figure id="animated-figure-route-west">
             <figcaption>
                 <strong>The closest, safe north-south path is Garry Street.</strong>
                 You have backtrack through the Forks (again).
@@ -274,11 +313,94 @@
                 before continuing on your way.
             </figcaption>
 
-            <picture>
-                <source srcset="images/route-west--cropped.png" media="(max-width: 940px)">
-                <img src="images/route-west.png" alt="route west" width="931" height="994">
-            </picture>
+            <svg viewBox="0 0 816 1000" id="animated">
+
+                <defs>
+                    <pattern
+                            id="exclusion-hatch"
+                            x="0" y="0" width="20" height="20"
+                            patternUnits="userSpaceOnUse"
+                            patternTransform="rotate(30)"
+                    >
+                        <line
+                                x1="10" x2="10" y1="0" y2="20"
+                                stroke-width="4" stroke="red"
+                        />
+                    </pattern>
+                    <filter id="drop-shadow" width="120" height="120">
+                        <feOffset in="SourceGraphic" dx="3" dy="3"/>
+                        <feComponentTransfer>
+                            <feFuncA type="linear" slope="0.3"/>
+                        </feComponentTransfer>
+                        <feColorMatrix type="matrix" values="0.2 0 0 0 0 0 0.2 0 0 0 0 0 0.2 0 0 0 0 0 1 0"/>
+                        <feGaussianBlur stdDeviation="2"/>
+                        <feBlend in="SourceGraphic" in2="blurOut"/>
+                    </filter>
+                </defs>
+
+
+
+                <image href="images/route-west-base.png" width="816" height="1217" />
+
+                <path
+                    class="path"
+                    stroke="#ff00ff"
+                    stroke-width="8"
+                    fill="none"
+                    pathLength="100"
+                    filter="url(#drop-shadow)"
+
+                    d="
+                        M 540,1000
+                        L 518,950
+                        C 489,885 536,920 550,918
+                        C 576,923 571,898 560,854
+                        C 531,764 568,790 592,811
+                        C 637,831 631,769 666,785
+                        C 734,792 678,682 724,665
+                        C 764,633 708,554 652,495
+                        C 637,475 627,483 645,505
+                        C 777,699 719,600 692,693
+                        C 704,820 639,747 630,780
+                        C 598,842 549,717 536,812
+                        C 572,919 533,908 508,896
+                        C 472,865 443,876 443,887
+                        L 343,939
+                        L 100,239
+                        L 78,229
+                        L 131,133
+                        L 167,149
+                        L 232,150
+                        L 290,143
+                        L 446,204
+                        C 504,217 540,171 519,116
+                        S 558,67 546,0
+            "
+                    />
+
+
+                <g id="exclusion" transform="translate(337,206)">
+                    <path
+                            class="exclusion"
+                            d="m 180,120 47,-22 90,170 -95,10 -15,-7 15,-45
+                           c 0,0 20,-50 -20,-90
+                           z"
+                            fill="url(#exclusion-hatch)"
+                            filter="url(#drop-shadow)"
+                            stroke="#ca3339"
+                            stroke-width="6px"
+
+                    />
+                </g>
+
+                    <circle class="debug" id="c1" cx="29" cy="2" r="5" fill="blue" stroke="black" />
+                    <circle class="debug" id="c2" cx="550" cy="918" r="5" fill="#9aa0ea" stroke="black"/>
+                    <circle class="debug" id="c3" cx="536" cy="920" r="5" fill="red" stroke="black" />
+
+            </svg>
+            <p class="debug" id="location">Loc</p>
         </figure>
+
     </article>
     <aside class="credit">
         <p>
@@ -287,6 +409,53 @@
     </aside>
 </main>
 <script src="js/index.js"></script>
+
+
+<script>
+    svg = document.getElementById('animated');
+    pt = svg.createSVGPoint()
+
+    function cursorPoint(evt) {
+        pt.x = evt.clientX;
+        pt.y = evt.clientY;
+        return pt.matrixTransform(svg.getScreenCTM().inverse());
+    }
+
+
+    locEl = document.getElementById("location")
+    svg.addEventListener('mousemove', function(evt) {
+        let loc = cursorPoint(evt);
+        console.log(loc.x, loc.y);
+        // round to nearest 1
+        locEl.innerText = `(${Math.round(loc.x)}, ${Math.round(loc.y)})`;
+    });
+
+
+    path = svg.querySelector('path')
+    d = path.getAttribute('d')
+    r = /C\s(\d+),(\d+)\s+(\d+),(\d+)\s+(\d+),(\d+)/g
+    g = d.matchAll(r)
+    a = Array.from(g)
+    b = a[a.length - 1]
+
+
+    c1 = document.createElement("circle")
+    c1.setAttribute("fill", "blue")
+    c1.setAttribute("stroke", "black")
+    svg.appendChild(c1)
+    c1.setAttribute("cx", b[1])
+    c1.setAttribute("cy", b[2])
+
+    c2 = document.getElementById("c2")
+    c2.setAttribute("cx", b[3])
+    c2.setAttribute("cy", b[4])
+
+    c3 = document.getElementById("c3")
+    c3.setAttribute("cx", b[5])
+    c3.setAttribute("cy", b[6])
+
+
+</script>
 
 </body>
 
