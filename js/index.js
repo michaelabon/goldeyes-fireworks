@@ -11,6 +11,7 @@ function isSameDate(today, candidate) {
 
 const fireworksDates = [
     new Date('2024-08-30T12:00:00-06:00'),
+    new Date('2024-09-06T12:00:00-06:00'),
 ]
 
 announceFireworks = () => {

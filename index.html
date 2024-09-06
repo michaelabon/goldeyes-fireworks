@@ -92,7 +92,7 @@
             The Goldeyes close down Waterfront Drive
             to foot, bicycle, and vehicle traffic
             starting from the beginning of evening rush hour
-            all the way till after the fireworks.
+            all the way till after the fireworks. There are 5 hours of closure typically.
         </p>
         <p>
             <strong>
@@ -272,21 +272,23 @@
                                 stroke-width="6" stroke="#ca3339"
                         />
                     </pattern>
-                    <filter id="drop-shadow" width="120" height="120">
-                        <feOffset in="SourceGraphic" dx="5" dy="5"/>
-                        <feComponentTransfer>
-                            <feFuncA type="linear" slope="0.3"/>
-                        </feComponentTransfer>
-                        <feColorMatrix type="matrix" values="0.2 0 0 0 0 0 0.2 0 0 0 0 0 0.2 0 0 0 0 0 1 0"/>
-                        <feGaussianBlur stdDeviation="2"/>
-                        <feBlend in="SourceGraphic" in2="blurOut"/>
-                    </filter>
                 </defs>
                 <image
                         href="images/official-bike-map.png"
                         width="930" height="987"
                         preserveAspectRatio="xMidyMid"
                 />
+                <g id="shadow">
+                    <circle
+                            id="exclusion-circle"
+                            r="50" cx="384" cy="544"
+                            fill="url(#exclusion-hatch)"
+                            filter="url(#drop-shadow)"
+                            stroke="black"
+                            stroke-width="8px"
+                            opacity="0.5"
+                    />
+                </g>
                 <g id="exclusion">
                     <circle
                             id="exclusion-circle"
