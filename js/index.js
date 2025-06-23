@@ -22,7 +22,7 @@ const fireworksDates = [
 ]
 
 announceFireworks = () => {
-  document.getElementById('answer').innerHTML = "<p>Yes, Waterfront Drive is <strong><em>closed</em></strong> today.</p> <p>Your evening commute will be disrupted.</p>";
+  document.getElementById('answer').innerHTML = "<p>Yes, Waterfront Drive will be <span class=\"yes-emphasis\">closed</span> tonight.</p> <p>Detour slowly through the pedestrian plaza.</p>";
   document.querySelector('body').classList.add('yes');
 }
 

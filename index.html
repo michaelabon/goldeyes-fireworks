@@ -1,470 +1,420 @@
-<!doctype html>
+<!DOCTYPE html>
 <html class="no-js" lang="">
-
-<head>
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
     <title>Goldeyes Fireworks</title>
-    <link rel="stylesheet" href="css/reset.css">
-    <link rel="stylesheet" href="css/index.css">
+    <link rel="stylesheet" href="css/reset.css" />
+    <link rel="stylesheet" href="css/index.css" />
     <!--    <link rel="stylesheet" href="css/responsive-attributes.css">-->
 
     <!-- Google Font -->
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@500&display=swap" rel="stylesheet">
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@500&display=swap"
+      rel="stylesheet"
+    />
 
-    <meta name="description" content="">
+    <meta name="description" content="" />
 
-    <meta property="og:title" content="Is Your Evening Commute Disrupted?">
-    <meta property="og:description" content="The Winnipeg Goldeyes sporadically close the best north-south bicycle route across downtown, with no signed notice. “Safe” detours add 15–20 minutes through dangerous intersections.">
-    <meta property="og:image" content="https://goldeyesfireworks.com/meta/og/banner.png">
-    <meta property="og:url" content="https://goldeyesfireworks.com">
-    <meta property="og:type" content="article">
+    <meta
+      property="og:title"
+      content="Will Waterfront Drive be Closed Tonight?"
+    />
+    <meta
+      property="og:description"
+      content="The Winnipeg Goldeyes occasionally close the best north-south bicycle route across downtown. Starting in 2025, they are giving advance warning, safe detours, and later starts to the closures!"
+    />
+    <meta
+      property="og:image"
+      content="https://goldeyesfireworks.com/meta/og/banner.png"
+    />
+    <meta property="og:url" content="https://goldeyesfireworks.com" />
+    <meta property="og:type" content="article" />
 
-    <link rel="apple-touch-icon" sizes="57x57" href="/apple-icon-57x57.png">
-    <link rel="apple-touch-icon" sizes="60x60" href="/apple-icon-60x60.png">
-    <link rel="apple-touch-icon" sizes="72x72" href="/apple-icon-72x72.png">
-    <link rel="apple-touch-icon" sizes="76x76" href="/apple-icon-76x76.png">
-    <link rel="apple-touch-icon" sizes="114x114" href="/apple-icon-114x114.png">
-    <link rel="apple-touch-icon" sizes="120x120" href="/apple-icon-120x120.png">
-    <link rel="apple-touch-icon" sizes="144x144" href="/apple-icon-144x144.png">
-    <link rel="apple-touch-icon" sizes="152x152" href="/apple-icon-152x152.png">
-    <link rel="apple-touch-icon" sizes="180x180" href="/apple-icon-180x180.png">
-    <link rel="icon" type="image/png" sizes="192x192"  href="/android-icon-192x192.png">
-    <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
-    <link rel="icon" type="image/png" sizes="96x96" href="/favicon-96x96.png">
-    <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
-    <link rel="manifest" href="/manifest.json">
-    <meta name="msapplication-TileColor" content="#ffffff">
-    <meta name="msapplication-TileImage" content="/ms-icon-144x144.png">
-    <meta name="theme-color" content="#ffffff">
+    <link rel="apple-touch-icon" sizes="57x57" href="/apple-icon-57x57.png" />
+    <link rel="apple-touch-icon" sizes="60x60" href="/apple-icon-60x60.png" />
+    <link rel="apple-touch-icon" sizes="72x72" href="/apple-icon-72x72.png" />
+    <link rel="apple-touch-icon" sizes="76x76" href="/apple-icon-76x76.png" />
+    <link
+      rel="apple-touch-icon"
+      sizes="114x114"
+      href="/apple-icon-114x114.png"
+    />
+    <link
+      rel="apple-touch-icon"
+      sizes="120x120"
+      href="/apple-icon-120x120.png"
+    />
+    <link
+      rel="apple-touch-icon"
+      sizes="144x144"
+      href="/apple-icon-144x144.png"
+    />
+    <link
+      rel="apple-touch-icon"
+      sizes="152x152"
+      href="/apple-icon-152x152.png"
+    />
+    <link
+      rel="apple-touch-icon"
+      sizes="180x180"
+      href="/apple-icon-180x180.png"
+    />
+    <link
+      rel="icon"
+      type="image/png"
+      sizes="192x192"
+      href="/android-icon-192x192.png"
+    />
+    <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png" />
+    <link rel="icon" type="image/png" sizes="96x96" href="/favicon-96x96.png" />
+    <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png" />
+    <link rel="manifest" href="/manifest.json" />
+    <meta name="msapplication-TileColor" content="#ffffff" />
+    <meta name="msapplication-TileImage" content="/ms-icon-144x144.png" />
+    <meta name="theme-color" content="#ffffff" />
 
-    <link rel="manifest" href="site.webmanifest">
-    <meta name="theme-color" content="#fafafa">
+    <link rel="manifest" href="site.webmanifest" />
+    <meta name="theme-color" content="#fafafa" />
 
+    <!-- Needed in head for the SVG animations, as opposed to an external sheet -->
     <style>
-        .debug {
-            display: none;
-        }
+      .debug {
+        display: none;
+      }
 
-        #animated-figure-route-west, #animated {
-            height: 80%;
-            max-height: 90vh;
-            scroll-snap-align: start;
-            scroll-snap-stop: normal;
-            scroll-snap-type: both mandatory;
-        }
+      #animated-figure-route-west,
+      #animated {
+        height: 80%;
+        max-height: 90vh;
+        scroll-snap-align: start;
+        scroll-snap-stop: normal;
+        scroll-snap-type: both mandatory;
+      }
 
-        .path {
-            stroke-dasharray: 150;
-            stroke-dashoffset: 150;
-            animation: dash 10s linear normal infinite;
-        }
+      .path {
+        fill: none;
+      }
 
-        @keyframes dash {
-            0% {
-                stroke-dashoffset: 150;
-            }
-            15% {
-                stroke-dashoffset: 130;
-            }
-            25% {
-                stroke-dashoffset: 126;
-            }
-            35% {
-                stroke-dashoffset: 124;
-            }
-            40% {
-                stroke-dashoffset: 120;
-            }
-            100% {
-                stroke-dashoffset: 0;
-            }
-        }
+      .path.shadow {
+        stroke: oklch(0 0 0);
+        stroke-width: 12;
+      }
+
+      .path.primary {
+        stroke: oklch(0.793 0.17 71);
+        stroke-width: 8;
+      }
     </style>
-</head>
+  </head>
 
-<body>
-
-<!-- Add your site or application content here -->
-<main>
-    <article class="announce">
-        <h1 id="question">Are the Goldeyes Closing Waterfront Drive Today?</h1>
+  <body>
+    <!-- Add your site or application content here -->
+    <main>
+      <section class="announce">
+        <h1 id="question">Will Waterfront Drive be Closed Tonight?</h1>
         <div id="answer">
-            <p>No, Waterfront Drive is <em>open</em> today.</p>
-            <p id="next">There are no more scheduled fireworks for the 2025 season.</p>
+          <p>No, Waterfront Drive is <em>open</em> today.</p>
+          <p id="next">
+            There are no more scheduled fireworks for the 2025 season.
+          </p>
         </div>
-    </article>
+      </section>
 
-
-    <article class="explanation">
-        <h2>Why does this matter?</h2>
+      <article class="explanation summary">
+        <h2>Huge Improvements for 2025!</h2>
         <p>
-            <strong>
-                Your evening commute will be ruined.
-            </strong>
-            The Goldeyes close down Waterfront Drive
-            to foot, bicycle, and vehicle traffic
-            starting from the beginning of evening rush hour
-            all the way till after the fireworks. There are 5 hours of closure typically.
+          <strong>New advanced warning signs!</strong>
+          Pedestrians, cyclists, and drivers now have several days' notice that
+          Waterfront Drive will be closed.
         </p>
         <p>
-            <strong>
-                Imagine driving home and a bridge were suddenly closed during rush hour.
-                No signage, no warning.
-            </strong>
-            The nearest safe routes add 20 minutes to your journey and
-            take you through different neighbourhoods, if you can find them.
+          <strong>
+            New detour signs through the Goldeyes pedestrian plaza!
+          </strong>
+          You no longer have to wonder how to get through. People on bikes are
+          no longer asked to add 20 minutes to their journey.
         </p>
         <p>
-            <strong>
-                There are no signed detours.
-            </strong>
-            You're just left to figure it out.
+          <strong>Later closures: starting at 6pm!</strong>
+          Rather than closing off Waterfront Drive at the start of the evening
+          commute! The Goldeyes and Archangel Fireworks have a new plan to delay
+          the closure as long as is practicable.
         </p>
         <p>
-            <strong>There is no advanced signage.</strong>
-            Parades, marathons, street fairs?
-            You get days’ worth of posted signs,
-            advising you of the upcoming disruption.
+          <strong>
+            <em>
+              Big thanks to the Winnipeg Goldeyes for listening and taking
+              action.
+            </em>
+          </strong>
         </p>
-        <p>
-            <strong>
-                The safe, unsigned detour takes you through
-                the most dangerous intersection in Winnipeg.
-            </strong>
-            Yes, it’s Assiniboine Ave and Main St,
-            where
-            <a href="media/dangerous.pdf#page=8">
-                30% of left-turning drivers run the red light through the crosswalk.
-            </a>
-            <br>
-        <blockquote>
-            The involvement rate in high risk left-turn conflicts
-            was <em>six times higher</em>
-            than the benchmark rate for permissive left turn movements
-            on urban arterials in North America.
-        </blockquote>
+      </article>
 
-        </p>
-
-    </article>
-
-    <article class="diagrams">
+      <article class="diagrams">
         <h2>I’m more of a visual learner</h2>
 
-        <p>
-            Me too. I’ve got you.
-        </p>
+        <p>Me too. I’ve got you.</p>
 
-        <figure id="figure-route-obstruction">
-            <figcaption>
-                <strong>
-                    The Goldeyes run barriers from the ballpark all the way down to the river.
-                </strong>
-            </figcaption>
-
-            <picture>
-                <source srcset="images/obstruction-small.svg" media="(max-width: 800px)" width="348" height="478" />
-                <img src="images/obstruction-large.svg" />
-            </picture>
-            <!--
-            <svg
-                    viewBox="0 0 348 478"
-                    xmlns="http://www.w3.org/2000/svg"
-                    class="sm"
-            >
-                <defs>
-                    <pattern
-                            id="exclusion-hatch"
-                            x="0" y="0" width="20" height="20"
-                            patternUnits="userSpaceOnUse"
-                            patternTransform="rotate(30)"
-                    >
-                        <line
-                                x1="10" x2="10" y1="0" y2="20"
-                                stroke-width="4" stroke="red"
-                        />
-                    </pattern>
-                    <filter id="drop-shadow" width="120" height="120">
-                        <feOffset in="SourceGraphic" dx="3" dy="3"/>
-                        <feComponentTransfer>
-                            <feFuncA type="linear" slope="0.3"/>
-                        </feComponentTransfer>
-                        <feColorMatrix type="matrix" values="0.2 0 0 0 0 0 0.2 0 0 0 0 0 0.2 0 0 0 0 0 1 0"/>
-                        <feGaussianBlur stdDeviation="2"/>
-                        <feBlend in="SourceGraphic" in2="blurOut"/>
-                    </filter>
-                </defs>
-                <image
-                        href="images/obstruction-base-small.png"
-                        width="348" height="478"
-                        preserveAspectRatio="xMidyMid"
-                />
-                <g id="exclusion">
-                    <path
-                            class="exclusion"
-                            d="m 180,120 47,-22 90,170 -95,10 -15,-7 15,-45
-                           c 0,0 20,-50 -20,-90
-                           z"
-                            fill="url(#exclusion-hatch)"
-                            filter="url(#drop-shadow)"
-
-                    />
-                </g>
-            </svg>
-
-            <svg
-                    viewBox="0 0 629 868"
-                    xmlns="http://www.w3.org/2000/svg"
-                    class="lg"
-            >
-                <defs>
-                    <pattern
-                            id="exclusion-hatch"
-                            x="0" y="0" width="20" height="20"
-                            patternUnits="userSpaceOnUse"
-                            patternTransform="rotate(30)"
-                    >
-                        <line
-                                x1="10" x2="10" y1="0" y2="20"
-                                stroke-width="4" stroke="red"
-                        />
-                    </pattern>
-                    <filter id="drop-shadow" width="120" height="120">
-                        <feOffset in="SourceGraphic" dx="3" dy="3"/>
-                        <feComponentTransfer>
-                            <feFuncA type="linear" slope="0.3"/>
-                        </feComponentTransfer>
-                        <feColorMatrix type="matrix" values="0.2 0 0 0 0 0 0.2 0 0 0 0 0 0.2 0 0 0 0 0 1 0"/>
-                        <feGaussianBlur stdDeviation="2"/>
-                        <feBlend in="SourceGraphic" in2="blurOut"/>
-                    </filter>
-                </defs>
-                <image
-                        href="images/obstruction-base-big.png"
-                        width="629" height="868"
-                        preserveAspectRatio="xMidyMid"
-                />
-                <g id="exclusion" transform="scale(1.8) translate(-20,-30)">
-                    <path
-                            class="exclusion"
-                            d="m 180,120 47,-22 100,170 -100,10 -15,-7 15,-45
-                           c 0,0 20,-50 -20,-90
-                           z"
-                            fill="url(#exclusion-hatch)"
-                            filter="url(#drop-shadow)"
-
-                    />
-                </g>
-            </svg>
-            -->
-        </figure>
-
-        <figure id="puzzle">
-            <figcaption>
-                <strong>
-                    Here’s a puzzle for you.
-                </strong>
-                You want to take that green north-south route,
-                but you can’t go past the red fireworks zone.
-                Can you find a safe detour using only blue or green routes?
-            </figcaption>
-            <svg
-                    viewBox="0 0 1000 1000"
-                    xmlns="http://www.w3.org/2000/svg"
-            >
-                <defs>
-                    <pattern
-                            id="exclusion-hatch"
-                            x="0" y="0" width="20" height="20"
-                            patternUnits="userSpaceOnUse"
-                            patternTransform="rotate(30)"
-                    >
-                        <line
-                                x1="10" x2="10" y1="0" y2="20"
-                                stroke-width="6" stroke="#ca3339"
-                        />
-                    </pattern>
-                </defs>
-                <image
-                        href="images/official-bike-map.png"
-                        width="930" height="987"
-                        preserveAspectRatio="xMidyMid"
-                />
-                <g id="shadow">
-                    <circle
-                            id="exclusion-circle"
-                            r="50" cx="384" cy="544"
-                            fill="url(#exclusion-hatch)"
-                            filter="url(#drop-shadow)"
-                            stroke="black"
-                            stroke-width="8px"
-                            opacity="0.5"
-                    />
-                </g>
-                <g id="exclusion">
-                    <circle
-                            id="exclusion-circle"
-                            r="50" cx="380" cy="540"
-                            fill="url(#exclusion-hatch)"
-                            filter="url(#drop-shadow)"
-                            stroke="#ca3339"
-                            stroke-width="8px"
-                    />
-                </g>
-            </svg>
-        </figure>
-        
+        <blockquote>
+          The Winnipeg Goldeyes and the City of Winnipeg have put up signed
+          pedestrian and cyclist detours through the pedestrian plaza.
+        </blockquote>
 
         <figure id="animated-figure-route-west">
-            <figcaption>
-                <strong>The closest, safe north-south path is Garry Street.</strong>
-                You have backtrack through the Forks (again).
-                Cross over Main Street at Assiniboine Avenue,
-                keeping your eyes peeled for dangerous, law-breaking drivers.
-                Head north along Garry Street.
-                Navigate the wiggledy route through the Exchange District,
-                crossing over Main Street again,
-                before continuing on your way.
-            </figcaption>
+          <figcaption>
+            <strong> Proceed slowly! </strong>
+            There will be families with children enjoying the food trucks and
+            musicians in the pedestrian plaza and disabled parking lot behind
+            Blue Cross Park. We are guests in the pedestrian space, so be slow
+            and polite. Don’t ruin this for us, please!
+          </figcaption>
 
-            <svg viewBox="0 0 816 1000" id="animated">
+          <svg
+            viewBox="0 0 925 1001"
+            id="animated"
+            alt="A non-interactive map centred on the Blue Cross Park baseball stadium in Winnipeg, showing the road and cycling network around the park. The land and roads from the east side of the stadium down to the Red River have red diagonal lines, showing that Waterfront Drive and the related cycling paths are closed. There are orange routes drawn the show the detours available. When headed south on Waterfront drive, the orange route cuts west briefly onto Lombard Avenue, then south through the alley into the accessible parking lot at Blue Cross Park, then through the pedestrian plaza down to Pioneer Avenue. From there, the orange route heads east along Pioneer to the Provencher Bridge. At the bridge, it splits to showcase how pedestrians and cyclists and continue their ways east and south like normal."
+          >
+            <defs>
+              <pattern
+                id="exclusion-hatch"
+                x="0"
+                y="0"
+                width="20"
+                height="20"
+                patternUnits="userSpaceOnUse"
+                patternTransform="rotate(30)"
+              >
+                <line
+                  x1="10"
+                  x2="10"
+                  y1="0"
+                  y2="20"
+                  stroke-width="4"
+                  stroke="red"
+                />
+              </pattern>
+            </defs>
 
-                <defs>
-                    <pattern
-                            id="exclusion-hatch"
-                            x="0" y="0" width="20" height="20"
-                            patternUnits="userSpaceOnUse"
-                            patternTransform="rotate(30)"
-                    >
-                        <line
-                                x1="10" x2="10" y1="0" y2="20"
-                                stroke-width="4" stroke="red"
-                        />
-                    </pattern>
-                </defs>
+            <image href="images/detour-base.png" width="925" height="1001" />
 
+            <g id="bicycle-parking">
+              <image
+                href="images/bicycle-parking.png"
+                x="100"
+                y="170"
+                width="100"
+                height="170"
+              />
+              <path d="M 96 178 h 108 v 153 h -108 z" />
+              <polygon points="206,266 301,415 206,312" />
+            </g>
 
-
-                <image href="images/route-west-base.png" width="816" height="1217" />
-
-                <path
-                    class="path"
-                    stroke="#ff00ff"
-                    stroke-width="8"
-                    fill="none"
-                    pathLength="100"
-
-                    d="
-                        M 540,1000
-                        L 518,950
-                        C 489,885 536,920 550,918
-                        C 576,923 571,898 560,854
-                        C 531,764 568,790 592,811
-                        C 637,831 631,769 666,785
-                        C 734,792 678,682 724,665
-                        C 764,633 708,554 652,495
-                        C 637,475 627,483 645,505
-                        C 777,699 719,600 692,693
-                        C 704,820 639,747 630,780
-                        C 598,842 549,717 536,812
-                        C 572,919 533,908 508,896
-                        C 472,865 443,876 443,887
-                        L 343,939
-                        L 100,239
-                        L 78,229
-                        L 131,133
-                        L 167,149
-                        L 232,150
-                        L 290,143
-                        L 446,204
-                        C 504,217 540,171 519,116
-                        S 558,67 546,0
+            <path
+              class="path ballpark shadow"
+              d="
+                M 600,690
+                L 470,600
+                C 372,540 387,511 320,465
+                C 270,437 284,393 300,368
+                C 331,311 352,330 360,304
+                L 394,205
+                L 432,196
+                C 440,234 462,232 446,186
+                C 428,144 458,174 442,123
+                C 385,30 443,85 402,0
             "
-                    />
+            />
 
+            <path
+              class="path forks shadow"
+              d="
+                M 780,1010
+                L 800,1000
+                Q 928,958 860,852
+                Q 816,760 753,729
+                C 673,672 672,680 654,728
+                L 600,690
+            "
+            />
 
-                <g id="exclusion" transform="translate(337,206)">
-                    <path
-                            class="exclusion"
-                            d="m 180,120 47,-22 90,170 -95,10 -15,-7 15,-45
-                           c 0,0 20,-50 -20,-90
+            <path
+              class="path esplanade shadow"
+              d="
+                M 930,880
+                L 815,923
+                C 844,997 920,955 860,852
+                Q 816,760 753,729
+                C 673,672 672,680 654,728
+                L 600,690
+            "
+            />
+
+            <path
+              class="path ballpark primary"
+              d="
+                M 600,690
+                L 470,600
+                C 372,540 387,511 320,465
+                C 270,437 284,393 300,368
+                C 331,311 352,330 360,304
+                L 394,205
+                L 432,196
+                C 440,234 462,232 446,186
+                C 428,144 458,174 442,123
+                C 385,30 443,85 402,0
+            "
+            />
+
+            <path
+              class="path forks primary"
+              d="
+                M 780,1010
+                L 800,1000
+                Q 928,958 860,852
+                Q 816,760 753,729
+                C 673,672 672,680 654,728
+                L 600,690
+            "
+            />
+
+            <path
+              class="path esplanade primary"
+              d="
+                M 930,880
+                L 815,923
+                C 844,997 920,955 860,852
+                Q 816,760 753,729
+                C 673,672 672,680 654,728
+                L 600,690
+            "
+            />
+
+            <path
+              class="path provencher shadow"
+              fill="none"
+              pathLength="100"
+              d="
+                M 940,808
+                Q 814,835 654,728
+              "
+            />
+
+            <path
+              class="path provencher primary"
+              stroke="orange"
+              stroke-width="8"
+              fill="none"
+              pathLength="100"
+              d="
+                M 940,808
+                Q 814,835 654,728
+              "
+            />
+
+            <g id="exclusion">
+              <path
+                class="exclusion"
+                d="m 455,288 77,-32 200,350
+                             -205,0 -25,-17 15,-45
+                             
+                           C 572,401, 492 330 455,288
                            z"
-                            fill="url(#exclusion-hatch)"
-                            filter="url(#drop-shadow)"
-                            stroke="#ca3339"
-                            stroke-width="6px"
+                fill="url(#exclusion-hatch)"
+                filter="url(#drop-shadow)"
+                stroke="#ca3339"
+                stroke-width="6px"
+              />
+            </g>
 
-                    />
-                </g>
-
-                    <circle class="debug" id="c1" cx="29" cy="2" r="5" fill="blue" stroke="black" />
-                    <circle class="debug" id="c2" cx="550" cy="918" r="5" fill="#9aa0ea" stroke="black"/>
-                    <circle class="debug" id="c3" cx="536" cy="920" r="5" fill="red" stroke="black" />
-
-            </svg>
-            <p class="debug" id="location">Loc</p>
+            <circle
+              class="debug"
+              id="c1"
+              cx="502"
+              cy="591"
+              r="5"
+              fill="blue"
+              stroke="black"
+            />
+            <circle
+              class="debug"
+              id="c2"
+              cx="562"
+              cy="441"
+              r="5"
+              fill="#9aa0ea"
+              stroke="black"
+            />
+            <circle
+              class="debug"
+              id="c3"
+              cx="492"
+              cy="310"
+              r="5"
+              fill="red"
+              stroke="black"
+            />
+          </svg>
+          <p>
+            <strong>Twice as much bicycle parking!</strong> Everyone keeps
+            biking the games, so the Goldeyes have doubled their bicycle racks,
+            which are located just at the entrance to the stadium, outside their
+            security office.
+          </p>
+          <p class="debug" id="location">Loc</p>
         </figure>
-
-    </article>
-    <aside class="credit">
+      </article>
+      <aside class="credit">
         <p>
-        Map data from <a href="https://www.openstreetmap.org/copyright/">OpenStreetMap</a> and City of Winnipeg.
+          Map data from
+          <a href="https://www.openstreetmap.org/copyright/">OpenStreetMap</a>.
         </p>
-    </aside>
-</main>
-<script src="js/index.js"></script>
+      </aside>
+    </main>
+    <script src="js/index.js"></script>
 
-<!--
-<script>
-    svg = document.getElementById('animated');
-    pt = svg.createSVGPoint()
+    <script>
+      const debug = false;
 
-    function cursorPoint(evt) {
-        pt.x = evt.clientX;
-        pt.y = evt.clientY;
-        return pt.matrixTransform(svg.getScreenCTM().inverse());
-    }
+      if (debug) {
+        svg = document.getElementById("animated");
+        pt = svg.createSVGPoint();
 
+        function cursorPoint(evt) {
+          pt.x = evt.clientX;
+          pt.y = evt.clientY;
+          return pt.matrixTransform(svg.getScreenCTM().inverse());
+        }
 
-    locEl = document.getElementById("location")
-    svg.addEventListener('mousemove', function(evt) {
-        let loc = cursorPoint(evt);
-        console.log(loc.x, loc.y);
-        // round to nearest 1
-        locEl.innerText = `(${Math.round(loc.x)}, ${Math.round(loc.y)})`;
-    });
+        locEl = document.getElementById("location");
+        svg.addEventListener("mousemove", function (evt) {
+          let loc = cursorPoint(evt);
+          console.log(loc.x, loc.y);
+          // round to nearest 1
+          locEl.innerText = `(${Math.round(loc.x)}, ${Math.round(loc.y)})`;
+        });
 
+        path = svg.querySelector("path");
+        d = path.getAttribute("d");
+        r = /C\s(\d+),(\d+)\s+(\d+),(\d+)\s+(\d+),(\d+)/g;
+        g = d.matchAll(r);
+        a = Array.from(g);
+        b = a[a.length - 1];
 
-    path = svg.querySelector('path')
-    d = path.getAttribute('d')
-    r = /C\s(\d+),(\d+)\s+(\d+),(\d+)\s+(\d+),(\d+)/g
-    g = d.matchAll(r)
-    a = Array.from(g)
-    b = a[a.length - 1]
+        c1 = document.getElementById("c1");
+        c1.setAttribute("cx", b[1]);
+        c1.setAttribute("cy", b[2]);
 
+        c2 = document.getElementById("c2");
+        c2.setAttribute("cx", b[3]);
+        c2.setAttribute("cy", b[4]);
 
-    c1 = document.createElement("circle")
-    c1.setAttribute("fill", "blue")
-    c1.setAttribute("stroke", "black")
-    svg.appendChild(c1)
-    c1.setAttribute("cx", b[1])
-    c1.setAttribute("cy", b[2])
-
-    c2 = document.getElementById("c2")
-    c2.setAttribute("cx", b[3])
-    c2.setAttribute("cy", b[4])
-
-    c3 = document.getElementById("c3")
-    c3.setAttribute("cx", b[5])
-    c3.setAttribute("cy", b[6])
-
-
-</script>
--->
-
-</body>
-
+        c3 = document.getElementById("c3");
+        c3.setAttribute("cx", b[5]);
+        c3.setAttribute("cy", b[6]);
+      }
+    </script>
+  </body>
 </html>
